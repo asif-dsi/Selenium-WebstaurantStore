@@ -53,16 +53,17 @@ public class Workflow {
         for (int i = 0; i < assertAll.size(); i++) {
             String s = assertAll.get(i).getText();
             Assert.assertTrue(s.contains("Table"));
+            System.out.println("Assertion successful!");
         }
         // Step 4
         lastPage.click();
         Thread.sleep(1500);
         lastProduct.click();
         wait.until(ExpectedConditions.elementToBeClickable(addCart)).click();
+        // Step 5
         wait.until(ExpectedConditions.elementToBeClickable(viewCart)).click();
         String t = total.getText();
         Assert.assertTrue(t.contains("264.49"));
-        // Step 5
         wait.until(ExpectedConditions.elementToBeClickable(emptyCart)).click();
         accept.get(9).click();
         String e = assertEmpty.getText();
